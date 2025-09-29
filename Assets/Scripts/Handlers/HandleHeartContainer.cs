@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class HandleHeartContainer : MonoBehaviour
 {
-    [SerializeField] private HandleHeartSprite _heart;
+    [SerializeField] private HandleHeartSprite _heartComponent;
 
     private void Awake()
     {
-        Data.MaxHealthIncreased += OnMaxHealthIncreased;
-        Data.CurrentHealthChanged += OnHealthChanged;
+        DATA.HEALTH.MaxHealthIncreased += OnMaxHealthIncreased;
+        DATA.HEALTH.CurrentHealthChanged += OnHealthChanged;
     }
 
     private void OnDestroy()
     {
-        Data.MaxHealthIncreased -= OnMaxHealthIncreased;
-        Data.CurrentHealthChanged -= OnHealthChanged;
+        DATA.HEALTH.MaxHealthIncreased -= OnMaxHealthIncreased;
+        DATA.HEALTH.CurrentHealthChanged -= OnHealthChanged;
     }
 
     private void OnMaxHealthIncreased()
     {
-        Instantiate(_heart, transform);
+        Instantiate(_heartComponent, transform);
 
         RedrawHealthBar();
     }
@@ -30,9 +30,9 @@ public class HandleHeartContainer : MonoBehaviour
 
     private void RedrawHealthBar()
     {
-        for (int i = 0; i < Data.MaxHealth; i++)
+        for (int i = 0; i < DATA.HEALTH.MaxHealth; i++)
         {
-            if (i < Data.CurrentHealth)
+            if (i < DATA.HEALTH.CurrentHealth)
             {
                 transform.GetComponentsInChildren<HandleHeartSprite>()[i].DisplayFullHeart();
             }

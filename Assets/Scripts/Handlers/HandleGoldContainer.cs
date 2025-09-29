@@ -3,20 +3,20 @@ using UnityEngine;
 
 public class HandleGoldContainer : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _goldAmount;
+    [SerializeField] private TextMeshProUGUI _goldAmountText;
 
-    private void Start()
+    private void Awake()
     {
-        Data.CurrentGoldChanged += OnCurrentGoldChanged;
+        DATA.GOLD.CurrentGoldChanged += OnCurrentGoldChanged;
     }
 
     private void OnDestroy()
     {
-        Data.CurrentGoldChanged -= OnCurrentGoldChanged;
+        DATA.GOLD.CurrentGoldChanged -= OnCurrentGoldChanged;
     }
 
     private void OnCurrentGoldChanged()
     {
-        _goldAmount.text = Data.CurrentGold.ToString();
+        _goldAmountText.text = DATA.GOLD.CurrentGold.ToString();
     }
 }

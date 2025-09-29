@@ -4,16 +4,19 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool _isPaused;
     [SerializeField] private int _startingHealth;
+    [SerializeField] private int _startingGold;
 
     private void Start()
     {
-        Data.SetIsPaused(_isPaused);
+        DATA.GAME_STATUS.SetGameState(GameStatus.GAME_STATE.RUNNING);
 
         for (int i = 0; i < _startingHealth; i++)
         {
-            Data.IncreaseMaxHealth();
+            DATA.HEALTH.IncreaseMaxHealth();
         }
 
-        Data.SetCurrentHealth(_startingHealth);
+        DATA.HEALTH.SetCurrentHealth(_startingHealth);
+
+        DATA.GOLD.IncreaseCurrentGold(_startingGold);
     }
 }

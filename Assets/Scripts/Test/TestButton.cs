@@ -4,21 +4,21 @@ public class TestButton : MonoBehaviour
 {
     public void TakeOneDamage()
     {
-        Data.SetCurrentHealth(Data.CurrentHealth - 1);
+        DATA.HEALTH.SetCurrentHealth(DATA.HEALTH.CurrentHealth - 1);
     }
 
     public void IncreaseMaxHeart()
     {
-        Data.IncreaseMaxHealth();
+        DATA.HEALTH.IncreaseMaxHealth();
     }
 
     public void IncreaseGoldBy1()
     {
-        Data.IncreaseCurrentGold();
+        DATA.GOLD.IncreaseCurrentGold();
     }
 
     public void IncreaseGoldBy5()
     {
-        Data.IncreaseCurrentGold(5);
+        DATA.GOLD.IncreaseCurrentGold(5);
     }
 }
