@@ -1,4 +1,4 @@
-public class LuckData
+public class LUCK_DATA
 {
     public event EVENT.IntEvent LuckIncreased;
 

@@ -1,4 +1,4 @@
-public class GoldData
+public class GOLD_DATA
 {
     public event EVENT.IntEvent CurrentGoldChanged;
 

@@ -1,4 +1,4 @@
-public class DamageData
+public class DAMAGE_DATA
 {
     public event EVENT.IntEvent DamageIncreased;
 

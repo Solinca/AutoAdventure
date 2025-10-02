@@ -1,4 +1,4 @@
-public class HealthData
+public class HEALTH_DATA
 {
     public event EVENT.IntEvent MaxHealthIncreased;
 
