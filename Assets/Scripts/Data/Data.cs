@@ -5,4 +5,5 @@ public static class DATA
     public static GOLD_DATA GOLD = new();
     public static DAMAGE_DATA DAMAGE = new();
     public static LUCK_DATA LUCK = new();
+    public static SHOP_DATA SHOP = new();
 }

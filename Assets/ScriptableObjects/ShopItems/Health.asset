@@ -15,4 +15,6 @@ MonoBehaviour:
   ShopItemName: +1 Health
   ShopItemPrice: 5
   NumberOfAvailablePurchase: 5
+  CurrentNumberOfPurchase: 0
   ShopItemType: 0
+  ShopItemAmount: 1

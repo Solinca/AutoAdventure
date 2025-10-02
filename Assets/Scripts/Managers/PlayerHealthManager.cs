@@ -2,23 +2,56 @@ using UnityEngine;
 
 public class PlayerHealthManager : MonoBehaviour
 {
+    [Header("Settings")]
+    [SerializeField] private int _startingHealth = 3;
+
     private void Awake()
     {
-        DATA.HEALTH.CurrentHealthChanged += OnCurrentHealthChanged;
+        DATA.HEALTH.DamageTaken += OnDamageTaken;
+        DATA.SHOP.ItemBought += OnItemBought;
     }
 
     private void OnDestroy()
     {
-        DATA.HEALTH.CurrentHealthChanged -= OnCurrentHealthChanged;
+        DATA.HEALTH.DamageTaken -= OnDamageTaken;
+        DATA.SHOP.ItemBought -= OnItemBought;
     }
 
-    private void OnCurrentHealthChanged(int currentHealth)
+    private void OnDamageTaken(int damage)
     {
-        if (currentHealth == 0)
+        DATA.HEALTH.LoseHealth(damage);
+
+        if (DATA.HEALTH.CurrentHealth <= 0)
         {
-            DATA.GAME_STATUS.SetGameState(GAME_STATUS.SHOPPING);
+            DATA.HEALTH.HealthDepleted.Invoke();
 
             DATA.HEALTH.SetCurrentHealth(DATA.HEALTH.MaxHealth);
         }
+
+        DATA.HEALTH.CurrentHealthChanged.Invoke();
+    }
+
+    private void OnItemBought(ShopItemScriptableObject item)
+    {
+        if (item.ShopItemType == SHOP_ITEM_TYPE.HEALTH)
+        {
+            IncreaseMaxHealth(item.ShopItemAmount);
+        }
+    }
+
+    private void Start()
+    {
+        IncreaseMaxHealth(_startingHealth);
+    }
+
+    private void IncreaseMaxHealth(int amount)
+    {
+        DATA.HEALTH.IncreaseMaxHealth(amount);
+
+        DATA.HEALTH.MaxHealthIncreased.Invoke(amount);
+
+        DATA.HEALTH.SetCurrentHealth(DATA.HEALTH.CurrentHealth + amount);
+
+        DATA.HEALTH.CurrentHealthChanged.Invoke();
     }
 }

@@ -8,44 +8,29 @@ public class HandleShopItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _shopItemNameText;
     [SerializeField] private TextMeshProUGUI _shopItemPriceText;
 
-    private int itemPrice;
-    private int currentNumberOfAvailablePurchase = 0;
-    private int maxNumberOfAvailablePurchase;
-    private SHOP_ITEM_TYPE itemType;
-    private EVENT.BuyItemEvent buyItemDelegate;
+    private Button _buyItemButton;
 
-    private Button _shopItem;
+    private ShopItemScriptableObject item;
 
     private void Awake()
     {
-        _shopItem = GetComponent<Button>();
+        _buyItemButton = GetComponent<Button>();
     }
 
-    public void SetupShopItem(string shopItemName, int shopItemPrice, int numberOfAvailablePurchase, SHOP_ITEM_TYPE shopItemType, EVENT.BuyItemEvent globalDelegate)
+    public void SetupShopItem(ShopItemScriptableObject shopItem)
     {
-        _shopItemNameText.text = shopItemName;
-        _shopItemPriceText.text = shopItemPrice.ToString();
+        _shopItemNameText.text = shopItem.ShopItemName;
+        _shopItemPriceText.text = shopItem.ShopItemPrice.ToString();
 
-        _shopItem.onClick.AddListener(BuyItem);
+        _buyItemButton.onClick.AddListener(BuyItem);
 
-        itemType = shopItemType;
-        itemPrice = shopItemPrice;
-        buyItemDelegate = globalDelegate;
-        maxNumberOfAvailablePurchase = numberOfAvailablePurchase;
+        item = shopItem;
     }
 
     public void BuyItem()
     {
-        if (currentNumberOfAvailablePurchase < maxNumberOfAvailablePurchase)
-        {
-            buyItemDelegate(itemType, itemPrice);
+        DATA.SHOP.ItemBought.Invoke(item);
 
-            currentNumberOfAvailablePurchase++;
-
-            if (currentNumberOfAvailablePurchase ==  maxNumberOfAvailablePurchase)
-            {
-                _shopItem.interactable = false;
-            }
-        }
+        _buyItemButton.interactable = DATA.SHOP.CheckItemAvailability(item);
     }
 }

@@ -1,6 +1,8 @@
 public class LUCK_DATA
 {
-    public event EVENT.IntEvent LuckIncreased;
+    public EVENT.IntEvent LuckIncreased;
+
+    // ------------------------------------------------ //
 
     public int CurrentLuck => _currentLuck;
 
@@ -8,11 +10,11 @@ public class LUCK_DATA
 
     public void IncreaseLuck()
     {
-        LuckIncreased?.Invoke(_currentLuck++);
+        _currentLuck++;
     }
 
     public void IncreaseLuck(int amountGained)
     {
-        LuckIncreased?.Invoke(_currentLuck += amountGained);
+        _currentLuck += amountGained;
     }
 }

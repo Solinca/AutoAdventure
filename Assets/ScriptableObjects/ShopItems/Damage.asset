@@ -15,4 +15,6 @@ MonoBehaviour:
   ShopItemName: +1 Damage
   ShopItemPrice: 5
   NumberOfAvailablePurchase: 5
+  CurrentNumberOfPurchase: 0
   ShopItemType: 1
+  ShopItemAmount: 1

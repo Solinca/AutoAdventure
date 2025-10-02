@@ -2,63 +2,28 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    [Header("Components")]
-    [SerializeField] private GameObject _shopItemContainer;
-    [SerializeField] private HandleShopItem _shopItemPrefab;
-
-    [Header("Items")]
+    [Header("Shop Items")]
     [SerializeField] private ShopItemScriptableObject[] _shopItemList;
-
-    EVENT.BuyItemEvent buyItemDelegate;
 
     private void Awake()
     {
-        DATA.GAME_STATUS.CurrentGameStatusChanged += OnCurrentGameStatusChanged;
+        foreach (ShopItemScriptableObject item in _shopItemList)
+        {
+            item.CurrentNumberOfPurchase = 0;
+
+            DATA.SHOP.AddItem(item);
+        }
+
+        DATA.SHOP.ItemBought += OnItemBought;
     }
 
     private void OnDestroy()
     {
-        DATA.GAME_STATUS.CurrentGameStatusChanged -= OnCurrentGameStatusChanged;
+        DATA.SHOP.ItemBought -= OnItemBought;
     }
 
-    private void Start()
+    public void OnItemBought(ShopItemScriptableObject item)
     {
-        buyItemDelegate = BuyItem;
-
-        foreach (ShopItemScriptableObject item in _shopItemList)
-        {
-            Instantiate(_shopItemPrefab, _shopItemContainer.transform)
-                .SetupShopItem(item.ShopItemName, item.ShopItemPrice, item.NumberOfAvailablePurchase, item.ShopItemType, buyItemDelegate);
-        }
-    }
-
-    private void OnCurrentGameStatusChanged(GAME_STATUS status)
-    {
-        gameObject.SetActive(status == GAME_STATUS.SHOPPING);
-    }
-
-    private void BuyItem(SHOP_ITEM_TYPE type, int price)
-    {
-        DATA.GOLD.DecreaseCurrentGold(price);
-
-        switch (type)
-        {
-            case SHOP_ITEM_TYPE.HEALTH:
-                DATA.HEALTH.IncreaseMaxHealth();
-                break;
-
-            case SHOP_ITEM_TYPE.DAMAGE:
-                DATA.DAMAGE.IncreaseDamage();
-                break;
-
-            case SHOP_ITEM_TYPE.LUCK:
-                DATA.LUCK.IncreaseLuck();
-                break;
-        }
-    }
-
-    public void CloseShop()
-    {
-        DATA.GAME_STATUS.SetGameState(GAME_STATUS.RUNNING);
+        DATA.SHOP.IncreaseNumberOfPurchase(item);
     }
 }

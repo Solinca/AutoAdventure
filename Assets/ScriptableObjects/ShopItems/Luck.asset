@@ -15,4 +15,6 @@ MonoBehaviour:
   ShopItemName: +1 Luck
   ShopItemPrice: 5
   NumberOfAvailablePurchase: 5
+  CurrentNumberOfPurchase: 0
   ShopItemType: 2
+  ShopItemAmount: 1

@@ -26,11 +26,9 @@ public class HandleHeartContainer : MonoBehaviour
         {
             heartList.Add(Instantiate(_heartPrefab, transform));
         }
-
-        RedrawHealthBar();
     }
 
-    private void OnHealthChanged(int _)
+    private void OnHealthChanged()
     {
         RedrawHealthBar();
     }
