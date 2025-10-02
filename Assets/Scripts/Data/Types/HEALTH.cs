@@ -1,29 +1,49 @@
 public class HealthData
 {
+    public event EVENT.IntEvent MaxHealthIncreased;
+
     public int MaxHealth => _maxHealth;
 
-    public event EVENT.GameEvent MaxHealthIncreased;
+    private int _maxHealth = 0;
 
     public void IncreaseMaxHealth()
     {
-        _maxHealth++;
-        _currentHealth++;
+        GainHealth(1);
 
-        MaxHealthIncreased.Invoke();
+        _maxHealth++;
+
+        MaxHealthIncreased?.Invoke(1);
     }
 
-    private int _maxHealth;
+    public void IncreaseMaxHealth(int amountGained)
+    {
+        GainHealth(amountGained);
 
-    public int CurrentHealth => _currentHealth;
+        _maxHealth += amountGained;
+
+        MaxHealthIncreased?.Invoke(amountGained);
+    }
+
+    // ------------------------------------------------ //
 
     public event EVENT.IntEvent CurrentHealthChanged;
 
+    public int CurrentHealth => _currentHealth;
+
+    private int _currentHealth = 0;
+
     public void SetCurrentHealth(int currentHealth)
     {
-        _currentHealth = currentHealth;
-
-        CurrentHealthChanged.Invoke(currentHealth);
+        CurrentHealthChanged?.Invoke(_currentHealth = currentHealth);
     }
 
-    private int _currentHealth;
+    public void GainHealth(int amountGained)
+    {
+        CurrentHealthChanged?.Invoke(_currentHealth += amountGained);
+    }
+
+    public void LoseHealth(int amountLost)
+    {
+        CurrentHealthChanged?.Invoke(_currentHealth -= amountLost);
+    }
 }

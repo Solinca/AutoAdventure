@@ -16,8 +16,8 @@ public class HandleGoldContainer : MonoBehaviour
         DATA.GOLD.CurrentGoldChanged -= OnCurrentGoldChanged;
     }
 
-    private void OnCurrentGoldChanged()
+    private void OnCurrentGoldChanged(int goldAmount)
     {
-        _goldAmountText.text = DATA.GOLD.CurrentGold.ToString();
+        _goldAmountText.text = goldAmount.ToString();
     }
 }

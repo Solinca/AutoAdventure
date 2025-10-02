@@ -20,9 +20,12 @@ public class HandleHeartContainer : MonoBehaviour
         DATA.HEALTH.CurrentHealthChanged -= OnHealthChanged;
     }
 
-    private void OnMaxHealthIncreased()
+    private void OnMaxHealthIncreased(int amountGained)
     {
-        heartList.Add(Instantiate(_heartPrefab, transform));
+        for (int i = 0; i < amountGained; i++)
+        {
+            heartList.Add(Instantiate(_heartPrefab, transform));
+        }
 
         RedrawHealthBar();
     }

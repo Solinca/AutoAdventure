@@ -48,10 +48,11 @@ public class ShopManager : MonoBehaviour
                 break;
 
             case SHOP_ITEM_TYPE.DAMAGE:
+                DATA.DAMAGE.IncreaseDamage();
                 break;
 
             case SHOP_ITEM_TYPE.LUCK:
-
+                DATA.LUCK.IncreaseLuck();
                 break;
         }
     }
