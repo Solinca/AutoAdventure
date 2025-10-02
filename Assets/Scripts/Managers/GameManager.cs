@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private bool _isPaused;
-    [SerializeField] private int _startingHealth;
-    [SerializeField] private int _startingGold;
+    [Header("Settings")]
+    [SerializeField] private bool _isPausedAtStart = false;
+    [SerializeField] private int _startingHealth = 3;
+    [SerializeField] private int _startingGold = 100;
 
     private void Start()
     {
-        DATA.GAME_STATUS.SetGameState(GameStatus.GAME_STATE.RUNNING);
+        DATA.GAME_STATUS.SetGameState(_isPausedAtStart ? GAME_STATUS.PAUSED : GAME_STATUS.RUNNING);
 
         for (int i = 0; i < _startingHealth; i++)
         {

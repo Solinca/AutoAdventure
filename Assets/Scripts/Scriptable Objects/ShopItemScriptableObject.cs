@@ -1,10 +1,10 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ShopItem", menuName = "ScriptableObjects/Shop", order = 1)]
+[CreateAssetMenu(fileName = "ShopItem", menuName = "ScriptableObjects/ShopItem", order = 1)]
 public class ShopItemScriptableObject : ScriptableObject
 {
-    public HandleShopItem ShopItemPrefab;
     public string ShopItemName;
     public int ShopItemPrice;
     public int NumberOfAvailablePurchase;
+    public SHOP_ITEM_TYPE ShopItemType;
 }

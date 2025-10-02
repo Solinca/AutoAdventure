@@ -1,8 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class HandleHeartContainer : MonoBehaviour
 {
-    [SerializeField] private HandleHeartSprite _heartComponent;
+    [Header("Components")]
+    [SerializeField] private HandleHeartSprite _heartPrefab;
+
+    private readonly List<HandleHeartSprite> heartList = new();
 
     private void Awake()
     {
@@ -18,7 +22,7 @@ public class HandleHeartContainer : MonoBehaviour
 
     private void OnMaxHealthIncreased()
     {
-        Instantiate(_heartComponent, transform);
+        heartList.Add(Instantiate(_heartPrefab, transform));
 
         RedrawHealthBar();
     }
@@ -34,11 +38,11 @@ public class HandleHeartContainer : MonoBehaviour
         {
             if (i < DATA.HEALTH.CurrentHealth)
             {
-                transform.GetComponentsInChildren<HandleHeartSprite>()[i].DisplayFullHeart();
+                heartList[i].DisplayFullHeart();
             }
             else
             {
-                transform.GetComponentsInChildren<HandleHeartSprite>()[i].DisplayEmptyHeart();
+                heartList[i].DisplayEmptyHeart();
             }
         }
     }

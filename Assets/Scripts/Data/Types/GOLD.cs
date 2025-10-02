@@ -1,8 +1,8 @@
-public class Gold
+public class GoldData
 {
     public int CurrentGold => _currentGold;
 
-    public event DATA.GameEvent CurrentGoldChanged;
+    public event EVENT.GameEvent CurrentGoldChanged;
 
     public void IncreaseCurrentGold()
     {
@@ -25,5 +25,5 @@ public class Gold
         CurrentGoldChanged.Invoke();
     }
 
-    private int _currentGold = 0;
+    private int _currentGold;
 }

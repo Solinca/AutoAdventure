@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1884928209096612168}
   - component: {fileID: 1770303359195070522}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Gold Coin Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 8214949924439354358}
   - component: {fileID: 5437931172661360721}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 1759713376180403226}
   - component: {fileID: 9047611697293622412}
   m_Layer: 5
-  m_Name: Gold Count
+  m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -573,3 +573,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046d3a193080d954d99b1ff165334bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  _shopItemNameText: {fileID: 5437931172661360721}
+  _shopItemPriceText: {fileID: 9047611697293622412}

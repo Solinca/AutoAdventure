@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class HandleGoldContainer : MonoBehaviour
 {
+    [Header("TextFields")]
     [SerializeField] private TextMeshProUGUI _goldAmountText;
 
     private void Awake()

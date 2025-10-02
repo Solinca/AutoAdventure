@@ -1,18 +1,15 @@
-public class GameStatus
+public class GameStatusData
 {
-    public enum GAME_STATE
+    public EVENT.GameStatusEvent CurrentGameStatusChanged;
+
+    public GAME_STATUS GameStatus => _gameStatus;
+
+    public void SetGameState(GAME_STATUS status)
     {
-        RUNNING,
-        PAUSED,
-        SHOPPING
+        _gameStatus = status;
+
+        CurrentGameStatusChanged.Invoke(status);
     }
 
-    public GAME_STATE GameState => _gameState;
-
-    public void SetGameState(GAME_STATE state)
-    {
-        _gameState = state;
-    }
-
-    private GAME_STATE _gameState = GAME_STATE.RUNNING;
+    private GAME_STATUS _gameStatus;
 }

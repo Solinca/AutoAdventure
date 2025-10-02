@@ -3,17 +3,24 @@ using UnityEngine.UI;
 
 public class HandleHeartSprite : MonoBehaviour
 {
-    [SerializeField] private Image _heartImage;
+    [Header("Sprites")]
     [SerializeField] private Sprite _fullHeartSprite;
     [SerializeField] private Sprite _emptyHeartSprite;
 
+    private Image _heartImageComponent;
+
+    private void Awake()
+    {
+        _heartImageComponent = GetComponent<Image>();
+    }
+
     public void DisplayFullHeart()
     {
-        _heartImage.sprite = _fullHeartSprite;
+        _heartImageComponent.sprite = _fullHeartSprite;
     }
 
     public void DisplayEmptyHeart()
     {
-        _heartImage.sprite = _emptyHeartSprite;
+        _heartImageComponent.sprite = _emptyHeartSprite;
     }
 }

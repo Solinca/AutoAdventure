@@ -1,8 +1,8 @@
-public class Health
+public class HealthData
 {
     public int MaxHealth => _maxHealth;
 
-    public event DATA.GameEvent MaxHealthIncreased;
+    public event EVENT.GameEvent MaxHealthIncreased;
 
     public void IncreaseMaxHealth()
     {
@@ -16,7 +16,7 @@ public class Health
 
     public int CurrentHealth => _currentHealth;
 
-    public event DATA.IntEvent CurrentHealthChanged;
+    public event EVENT.IntEvent CurrentHealthChanged;
 
     public void SetCurrentHealth(int currentHealth)
     {
@@ -25,5 +25,5 @@ public class Health
         CurrentHealthChanged.Invoke(currentHealth);
     }
 
-    private int _currentHealth = 0;
+    private int _currentHealth;
 }

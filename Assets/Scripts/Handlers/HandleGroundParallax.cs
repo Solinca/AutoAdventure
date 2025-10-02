@@ -2,26 +2,28 @@ using UnityEngine;
 
 public class HandleGroundParallax : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] private GameObject _groundPrefab;
-    [SerializeField] private GameObject _groundObject;
-    [SerializeField] private float _groundCreationEllapsedDistanceSetting;
-    [SerializeField] private float _groundCreationStep;
+
+    [Header("Settings")]
+    [SerializeField] private float _groundCreationEllapsedDistance = 1850;
+    [SerializeField] private float _groundMoveStep = 200;
 
     private float ellapsedDistance = 0;
 
     private void Update()
     {
-        if (DATA.GAME_STATUS.GameState == GameStatus.GAME_STATE.RUNNING)
+        if (DATA.GAME_STATUS.GameStatus == GAME_STATUS.RUNNING)
         {
-            ellapsedDistance += _groundCreationStep * Time.deltaTime * 1000;
+            ellapsedDistance += _groundMoveStep * Time.deltaTime;
 
-            _groundObject.transform.localPosition = _groundObject.transform.localPosition - _groundCreationStep * Time.deltaTime * Vector3.right * 1000;
+            transform.localPosition = transform.localPosition - _groundMoveStep * Time.deltaTime * Vector3.right;
 
-            if (ellapsedDistance >= _groundCreationEllapsedDistanceSetting)
+            if (ellapsedDistance >= _groundCreationEllapsedDistance)
             {
                 ellapsedDistance = 0;
 
-                Instantiate(_groundPrefab, _groundObject.transform);
+                Instantiate(_groundPrefab, transform);
             }
         }
     }

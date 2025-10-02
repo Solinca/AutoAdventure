@@ -16,7 +16,9 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (currentHealth == 0)
         {
-            DATA.GAME_STATUS.SetGameState(GameStatus.GAME_STATE.SHOPPING);
+            DATA.GAME_STATUS.SetGameState(GAME_STATUS.SHOPPING);
+
+            DATA.HEALTH.SetCurrentHealth(DATA.HEALTH.MaxHealth);
         }
     }
 }

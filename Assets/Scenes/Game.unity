@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 272999848}
   - component: {fileID: 272999847}
   m_Layer: 5
-  m_Name: Cross Button
+  m_Name: Close Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,7 +200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 272999848}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1572434340}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: CloseShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &272999848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +338,7 @@ GameObject:
   - component: {fileID: 462514577}
   - component: {fileID: 462514576}
   m_Layer: 5
-  m_Name: Gold Count
+  m_Name: Gold Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -569,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &571905102
 RectTransform:
   m_ObjectHideFlags: 0
@@ -779,7 +791,7 @@ GameObject:
   - component: {fileID: 784626569}
   - component: {fileID: 784626568}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Gold Coin Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1276,9 +1288,9 @@ RectTransform:
   - {fileID: 608396880}
   m_Father: {fileID: 571905102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 424.125, y: -368}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 240.5214, y: 88.9924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503830329
@@ -1426,8 +1438,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4e71d550d048542a234ed385b4a3e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _itemContainer: {fileID: 0}
-  _shopItems: []
+  _shopItemContainer: {fileID: 1994739514}
+  _shopItemPrefab: {fileID: 2204172125003318031, guid: 20ff997b84e0b8f4e901eacdc1bcef8e, type: 3}
+  _shopItemList:
+  - {fileID: 11400000, guid: eb10053103f504b449b1d533eb98fd95, type: 2}
+  - {fileID: 11400000, guid: b2285e08044aa2c459636fe014f65d2b, type: 2}
+  - {fileID: 11400000, guid: 6b17ca3e6859291419ca7c933847fb10, type: 2}
 --- !u!1 &1593267378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,7 +1599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1598162864
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2055,7 +2071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d860e1d020489e42985868ec71754e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _isPaused: 0
+  _isPausedAtStart: 0
   _startingHealth: 3
   _startingGold: 100
 --- !u!1 &1769903271
@@ -2133,7 +2149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84bf293711294e242b5bec72ca2e6f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _heart: {fileID: -7284766116943049830, guid: 4f61388a68cec3a4f830f4d0b2eb2a05, type: 3}
+  _heartPrefab: {fileID: -7284766116943049830, guid: 4f61388a68cec3a4f830f4d0b2eb2a05, type: 3}
 --- !u!1 &1793146803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,9 +2184,9 @@ RectTransform:
   - {fileID: 1896036785}
   m_Father: {fileID: 571905102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 706.875, y: -368}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 240.5214, y: 88.9924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793146805
@@ -2301,9 +2317,9 @@ RectTransform:
   - {fileID: 1104628382}
   m_Father: {fileID: 571905102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 989.625, y: -368}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 240.5214, y: 88.9924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1891126748
@@ -2587,10 +2603,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36c6475c20814642b54e3dff0278b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  m_GroundPrefab: {fileID: 5142534892810823708, guid: 52f79b38decb06e4a9f785ea04ebccc3, type: 3}
-  m_GroundObject: {fileID: 1902178922}
-  m_GroundCreationEllapsedDistanceSetting: 1800
-  m_GroundCreationStep: 0.1
+  _groundPrefab: {fileID: 5142534892810823708, guid: 52f79b38decb06e4a9f785ea04ebccc3, type: 3}
+  _groundCreationEllapsedDistance: 1850
+  _groundMoveStep: 200
 --- !u!114 &1902178925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2842,7 +2857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6806247a9825af84f9fe61ae4ec9c16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _goldAmount: {fileID: 462514576}
+  _goldAmountText: {fileID: 462514576}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
