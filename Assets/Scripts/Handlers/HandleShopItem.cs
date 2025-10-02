@@ -41,6 +41,11 @@ public class HandleShopItem : MonoBehaviour
             buyItemDelegate(itemType, itemPrice);
 
             currentNumberOfAvailablePurchase++;
+
+            if (currentNumberOfAvailablePurchase ==  maxNumberOfAvailablePurchase)
+            {
+                _shopItem.interactable = false;
+            }
         }
     }
 }
