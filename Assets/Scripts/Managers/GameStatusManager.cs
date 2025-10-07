@@ -9,12 +9,18 @@ public class GameStatusManager : MonoBehaviour
     {
         DATA.SHOP.ShopClosed += OnShopClosed;
         DATA.HEALTH.HealthDepleted += OnHealthDepleted;
+        DATA.IN_GAME_EVENT.EventStarting += OnEventStarting;
+        DATA.IN_GAME_EVENT.EventFinished += OnEventFinished;
+        DATA.IN_GAME_EVENT.CampaignCompleted += OnCampaignCompleted;
     }
 
     private void OnDestroy()
     {
         DATA.SHOP.ShopClosed -= OnShopClosed;
         DATA.HEALTH.HealthDepleted -= OnHealthDepleted;
+        DATA.IN_GAME_EVENT.EventStarting -= OnEventStarting;
+        DATA.IN_GAME_EVENT.EventFinished -= OnEventFinished;
+        DATA.IN_GAME_EVENT.CampaignCompleted -= OnCampaignCompleted;
     }
 
     private void OnShopClosed()
@@ -23,6 +29,22 @@ public class GameStatusManager : MonoBehaviour
     }
 
     private void OnHealthDepleted()
+    {
+        DATA.GAME_STATUS.SetGameStatus(GAME_STATUS.SHOPPING);
+    }
+
+    private void OnEventStarting()
+    {
+
+        DATA.GAME_STATUS.SetGameStatus(GAME_STATUS.PAUSED);
+    }
+
+    private void OnEventFinished()
+    {
+        DATA.GAME_STATUS.SetGameStatus(GAME_STATUS.RUNNING);
+    }
+
+    private void OnCampaignCompleted()
     {
         DATA.GAME_STATUS.SetGameStatus(GAME_STATUS.SHOPPING);
     }

@@ -12,7 +12,7 @@ public class InGameEventManager : MonoBehaviour
 
     private int eventIndex = 0;
 
-    private List<InGameEventScriptableObject> generatedEventList;
+    private readonly List<InGameEventScriptableObject> generatedEventList = new();
 
     private void Awake()
     {
@@ -30,6 +30,12 @@ public class InGameEventManager : MonoBehaviour
         {
             Invoke(nameof(TriggerEvent), _timeBetweenEvents);
         }
+        else if (status == GAME_STATUS.SHOPPING)
+        {
+            GenerateEventList();
+
+            eventIndex = 0;
+        }
     }
 
     private void Start()
@@ -39,6 +45,8 @@ public class InGameEventManager : MonoBehaviour
 
     private void GenerateEventList()
     {
+        generatedEventList.Clear();
+
         for (int i = 0; i < _numberOfEventToGenerate; i++)
         {
             generatedEventList.Add(_inGameEventList[Random.Range(0, _inGameEventList.Count)]);
@@ -47,6 +55,22 @@ public class InGameEventManager : MonoBehaviour
 
     private void TriggerEvent()
     {
-        //InGameEventScriptableObject triggeredEvent = generatedEventList[eventIndex];
+        DATA.IN_GAME_EVENT.EventStarting.Invoke();
+
+        InGameEventScriptableObject triggeredEvent = generatedEventList[eventIndex];
+
+        Debug.Log(triggeredEvent.InGameEventName);
+        Debug.Log(triggeredEvent.InGameEventType);
+
+        eventIndex++;
+
+        if (eventIndex >= _numberOfEventToGenerate)
+        {
+            DATA.IN_GAME_EVENT.CampaignCompleted.Invoke();
+        }
+        else
+        {
+            DATA.IN_GAME_EVENT.EventFinished.Invoke();
+        }
     }
 }

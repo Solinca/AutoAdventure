@@ -6,4 +6,5 @@ public static class DATA
     public static DAMAGE_DATA DAMAGE = new();
     public static LUCK_DATA LUCK = new();
     public static SHOP_DATA SHOP = new();
+    public static IN_GAME_EVENT_DATA IN_GAME_EVENT = new();
 }
