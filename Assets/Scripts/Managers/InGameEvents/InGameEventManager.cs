@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class InGameEventManager : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class InGameEventManager : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _timeBetweenEvents;
     [SerializeField] private int _numberOfEventToGenerate;
+    [SerializeField] private float _timeBetweenEventSteps;
+    [SerializeField] private float _timeToWaitOnEventComplete;
+    [SerializeField] private Color _playerNameColor;
+    [SerializeField] private Color _damageColor;
+    [SerializeField] private Color _goldColor;
 
     private int eventIndex = 0;
 
@@ -53,6 +59,13 @@ public class InGameEventManager : MonoBehaviour
     private void Start()
     {
         GenerateEventList();
+
+        DATA.IN_GAME_EVENT.TIME_BETWEEN_EVENT_STEP = _timeBetweenEventSteps;
+        DATA.IN_GAME_EVENT.TIME_TO_WAIT_ON_COMPLETE = _timeToWaitOnEventComplete;
+
+        DATA.IN_GAME_EVENT.PLAYER_COLOR = _playerNameColor.ToHexString();
+        DATA.IN_GAME_EVENT.DAMAGE_COLOR = _damageColor.ToHexString();
+        DATA.IN_GAME_EVENT.GOLD_COLOR = _goldColor.ToHexString();
     }
 
     private void GenerateEventList()

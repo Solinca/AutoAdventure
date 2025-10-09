@@ -25,13 +25,13 @@ public class FightEventManager : MonoBehaviour
     {
         if (igEvent.InGameEventType == EVENT_TYPE.FIGHT)
         {
-            DATA.IN_GAME_EVENT.ChatMessage.Invoke(igEvent.InGameEventName + " appeared!");
-
             monsterName = igEvent.InGameEventName;
             monsterColor = igEvent.InGameEventColor.ToHexString();
             monsterHealth = igEvent.Health;
             monsterDamage = igEvent.Damage;
             monsterGold = igEvent.Gold;
+
+            DATA.IN_GAME_EVENT.ChatMessage.Invoke("<color=#" + monsterColor + ">" + monsterName + "</color> appeared!");
 
             Invoke(nameof(ProcessNextStep), DATA.IN_GAME_EVENT.TIME_BETWEEN_EVENT_STEP);
         }

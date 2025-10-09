@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Health
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemScriptableObject
   ShopItemName: +1 Health
-  ShopItemPrice: 5
+  ShopItemPrice: 3
   NumberOfAvailablePurchase: 5
   CurrentNumberOfPurchase: 0
   ShopItemType: 0

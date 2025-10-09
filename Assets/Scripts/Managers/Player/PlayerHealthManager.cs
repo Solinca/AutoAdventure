@@ -4,6 +4,7 @@ public class PlayerHealthManager : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private int _startingHealth = 3;
+    [SerializeField] private float _timeToWaitAtDeath = 3;
 
     private void Awake()
     {
@@ -42,6 +43,8 @@ public class PlayerHealthManager : MonoBehaviour
     private void Start()
     {
         IncreaseMaxHealth(_startingHealth);
+
+        DATA.HEALTH.TIME_TO_WAIT_AT_DEATH = _timeToWaitAtDeath;
     }
 
     private void IncreaseMaxHealth(int amount)

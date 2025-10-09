@@ -291,8 +291,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76c20738e15115443b3ccd404fdef708, type: 2}
   - {fileID: 11400000, guid: 984e91f8b4e02b3429d992be748299d4, type: 2}
   - {fileID: 11400000, guid: 974e18be8143c3f48be53f6618c263a8, type: 2}
-  _timeBetweenEvents: 3
+  _timeBetweenEvents: 2
   _numberOfEventToGenerate: 10
+  _timeBetweenEventSteps: 0.8
+  _timeToWaitOnEventComplete: 3
+  _playerNameColor: {r: 0, g: 0.34443685, b: 0.9811321, a: 1}
+  _damageColor: {r: 1, g: 0.2688679, b: 0.2688679, a: 1}
+  _goldColor: {r: 1, g: 0.87736726, b: 0.2028302, a: 1}
 --- !u!1 &272999845
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,6 +4214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthManager
   _startingHealth: 3
+  _timeToWaitAtDeath: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

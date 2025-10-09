@@ -10,7 +10,7 @@ public class HEALTH_DATA
 
     // ------------------------------------------------ //
 
-    public int TIME_TO_WAIT_AT_DEATH = 3;
+    public float TIME_TO_WAIT_AT_DEATH = 3;
 
     // ------------------------------------------------ //
 
