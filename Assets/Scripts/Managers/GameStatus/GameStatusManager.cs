@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStatusManager : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class GameStatusManager : MonoBehaviour
 
     private void OnCampaignCompleted()
     {
-        DATA.GAME_STATUS.SetGameStatus(GAME_STATUS.SHOPPING);
+        SceneManager.LoadScene("Win");
     }
 
     private void Start()

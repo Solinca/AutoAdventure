@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Damage
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemScriptableObject
   ShopItemName: +1 Damage
-  ShopItemPrice: 4
-  NumberOfAvailablePurchase: 5
+  ShopItemPrice: 6
+  NumberOfAvailablePurchase: 9
   CurrentNumberOfPurchase: 0
   ShopItemType: 1
   ShopItemAmount: 1

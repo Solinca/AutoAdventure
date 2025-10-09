@@ -166,7 +166,6 @@ MonoBehaviour:
   _shopItemList:
   - {fileID: 11400000, guid: eb10053103f504b449b1d533eb98fd95, type: 2}
   - {fileID: 11400000, guid: b2285e08044aa2c459636fe014f65d2b, type: 2}
-  - {fileID: 11400000, guid: 6b17ca3e6859291419ca7c933847fb10, type: 2}
 --- !u!1 &67387989
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +290,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76c20738e15115443b3ccd404fdef708, type: 2}
   - {fileID: 11400000, guid: 984e91f8b4e02b3429d992be748299d4, type: 2}
   - {fileID: 11400000, guid: 974e18be8143c3f48be53f6618c263a8, type: 2}
-  _timeBetweenEvents: 2
+  _timeBetweenEvents: 1.5
   _numberOfEventToGenerate: 10
   _timeBetweenEventSteps: 0.8
   _timeToWaitOnEventComplete: 3
