@@ -14,11 +14,11 @@ public class InGameEventScriptableObject : ScriptableObject
     [Space]
 
     [ConditionalProperty(EVENT_TYPE.FIGHT)]
-    public int Damage;
+    public int Damage = 0;
 
     [ConditionalProperty(EVENT_TYPE.FIGHT)]
-    public int Health;
+    public int Health = 0;
 
     [ConditionalProperty(EVENT_TYPE.FIGHT)]
-    public int Gold;
+    public int Gold = 0;
 }

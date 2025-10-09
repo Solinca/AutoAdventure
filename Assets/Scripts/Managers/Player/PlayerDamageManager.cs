@@ -19,12 +19,19 @@ public class PlayerDamageManager : MonoBehaviour
     {
         if (item.ShopItemType == SHOP_ITEM_TYPE.DAMAGE)
         {
-            DATA.DAMAGE.IncreaseDamage(item.ShopItemAmount);
+            IncreaseDamage(item.ShopItemAmount);
         }
     }
 
     private void Start()
     {
-        DATA.DAMAGE.IncreaseDamage(_startingDamage);
+        IncreaseDamage(_startingDamage);
+    }
+
+    private void IncreaseDamage(int amount)
+    {
+        DATA.DAMAGE.IncreaseDamage(amount);
+
+        DATA.DAMAGE.CurrentDamageChanged.Invoke();
     }
 }

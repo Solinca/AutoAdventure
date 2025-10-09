@@ -2,6 +2,8 @@ public class DAMAGE_DATA
 {
     public EVENT.IntEvent DamageIncreased;
 
+    public EVENT.GameEvent CurrentDamageChanged;
+
     // ------------------------------------------------ //
 
     public int CurrentDamage => _currentDamage;
