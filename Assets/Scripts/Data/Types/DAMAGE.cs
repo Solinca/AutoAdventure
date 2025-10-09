@@ -10,11 +10,11 @@ public class DAMAGE_DATA
 
     public void IncreaseDamage()
     {
-        DamageIncreased?.Invoke(_currentDamage++);
+        _currentDamage++;
     }
 
     public void IncreaseDamage(int amountGained)
     {
-        DamageIncreased?.Invoke(_currentDamage += amountGained);
+        _currentDamage += amountGained;
     }
 }

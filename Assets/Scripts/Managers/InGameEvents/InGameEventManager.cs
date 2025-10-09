@@ -17,11 +17,13 @@ public class InGameEventManager : MonoBehaviour
     private void Awake()
     {
         DATA.GAME_STATUS.CurrentGameStatusChanged += OnCurrentGameStatusChanged;
+        DATA.IN_GAME_EVENT.EventFinished += OnEventFinished;
     }
 
     private void OnDestroy()
     {
         DATA.GAME_STATUS.CurrentGameStatusChanged -= OnCurrentGameStatusChanged;
+        DATA.IN_GAME_EVENT.EventFinished -= OnEventFinished;
     }
 
     private void OnCurrentGameStatusChanged(GAME_STATUS status)
@@ -35,6 +37,16 @@ public class InGameEventManager : MonoBehaviour
             GenerateEventList();
 
             eventIndex = 0;
+        }
+    }
+
+    private void OnEventFinished()
+    {
+        eventIndex++;
+
+        if (eventIndex >= _numberOfEventToGenerate)
+        {
+            DATA.IN_GAME_EVENT.CampaignCompleted.Invoke();
         }
     }
 
@@ -55,22 +67,6 @@ public class InGameEventManager : MonoBehaviour
 
     private void TriggerEvent()
     {
-        DATA.IN_GAME_EVENT.EventStarting.Invoke();
-
-        InGameEventScriptableObject triggeredEvent = generatedEventList[eventIndex];
-
-        Debug.Log(triggeredEvent.InGameEventName);
-        Debug.Log(triggeredEvent.InGameEventType);
-
-        eventIndex++;
-
-        if (eventIndex >= _numberOfEventToGenerate)
-        {
-            DATA.IN_GAME_EVENT.CampaignCompleted.Invoke();
-        }
-        else
-        {
-            DATA.IN_GAME_EVENT.EventFinished.Invoke();
-        }
+        DATA.IN_GAME_EVENT.EventStarting.Invoke(generatedEventList[eventIndex]);
     }
 }

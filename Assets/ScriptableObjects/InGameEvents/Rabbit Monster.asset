@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8d1bb861c8bfb4aa4a67eed1718c40, type: 3}
   m_Name: Rabbit Monster
   m_EditorClassIdentifier: Assembly-CSharp::InGameEventScriptableObject
-  InGameEventName: Rabbit Fight
+  InGameEventName: Rabbit
+  InGameEventSprite: {fileID: 21300000, guid: c46c1a1229b8db64598dacbd8133341f, type: 3}
+  InGameEventColor: {r: 1, g: 1, b: 1, a: 1}
   InGameEventType: 0
+  Damage: 0
+  Health: 1
+  Gold: 1

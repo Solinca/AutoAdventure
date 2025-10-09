@@ -6,6 +6,8 @@ public class SHOP_DATA
 
     public EVENT.ShopItemEvent ItemBought;
 
+    public EVENT.GameEvent FailBuyingItem;
+
     // ------------------------------------------------ //
 
     public List<ShopItemScriptableObject> ShopItemList => _shopItemList;

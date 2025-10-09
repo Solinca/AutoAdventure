@@ -3,13 +3,18 @@ using UnityEngine;
 public class HandleGroundParallax : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private GameObject _groundPrefab;
+    [SerializeField] private RectTransform _groundPrefab;
 
     [Header("Settings")]
-    [SerializeField] private float _groundCreationEllapsedDistance = 1850;
     [SerializeField] private float _groundMoveStep = 200;
 
     private float ellapsedDistance = 0;
+
+    private void Start()
+    {
+        Instantiate(_groundPrefab, transform).sizeDelta = new Vector2(Screen.width, 0);
+        Instantiate(_groundPrefab, transform).sizeDelta = new Vector2(Screen.width, 0);
+    }
 
     private void Update()
     {
@@ -19,11 +24,11 @@ public class HandleGroundParallax : MonoBehaviour
 
             transform.localPosition = transform.localPosition - _groundMoveStep * Time.deltaTime * Vector3.right;
 
-            if (ellapsedDistance >= _groundCreationEllapsedDistance)
+            if (ellapsedDistance >= Screen.width)
             {
                 ellapsedDistance = 0;
 
-                Instantiate(_groundPrefab, transform);
+                Instantiate(_groundPrefab, transform).sizeDelta = new Vector2(Screen.width, 0);
             }
         }
     }

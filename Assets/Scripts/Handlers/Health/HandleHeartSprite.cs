@@ -7,20 +7,20 @@ public class HandleHeartSprite : MonoBehaviour
     [SerializeField] private Sprite _fullHeartSprite;
     [SerializeField] private Sprite _emptyHeartSprite;
 
-    private Image _heartImageComponent;
+    private Image heartImageComponent;
 
     private void Awake()
     {
-        _heartImageComponent = GetComponent<Image>();
+        heartImageComponent = GetComponent<Image>();
     }
 
     public void DisplayFullHeart()
     {
-        _heartImageComponent.sprite = _fullHeartSprite;
+        heartImageComponent.sprite = _fullHeartSprite;
     }
 
     public void DisplayEmptyHeart()
     {
-        _heartImageComponent.sprite = _emptyHeartSprite;
+        heartImageComponent.sprite = _emptyHeartSprite;
     }
 }

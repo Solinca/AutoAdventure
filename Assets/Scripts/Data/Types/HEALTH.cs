@@ -10,6 +10,10 @@ public class HEALTH_DATA
 
     // ------------------------------------------------ //
 
+    public int TIME_TO_WAIT_AT_DEATH = 3;
+
+    // ------------------------------------------------ //
+
     public int MaxHealth => _maxHealth;
 
     private int _maxHealth = 0;

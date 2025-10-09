@@ -33,9 +33,8 @@ public class GameStatusManager : MonoBehaviour
         DATA.GAME_STATUS.SetGameStatus(GAME_STATUS.SHOPPING);
     }
 
-    private void OnEventStarting()
+    private void OnEventStarting(InGameEventScriptableObject _)
     {
-
         DATA.GAME_STATUS.SetGameStatus(GAME_STATUS.PAUSED);
     }
 

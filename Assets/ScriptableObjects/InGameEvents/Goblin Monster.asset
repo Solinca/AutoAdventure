@@ -10,7 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e8d1bb861c8bfb4aa4a67eed1718c40, type: 3}
-  m_Name: Orc Monster
+  m_Name: Goblin Monster
   m_EditorClassIdentifier: Assembly-CSharp::InGameEventScriptableObject
-  InGameEventName: Orc Fight
+  InGameEventName: Goblin
+  InGameEventSprite: {fileID: 21300000, guid: 63ea3c0eacbcb5d4b821755f4b967c3b, type: 3}
+  InGameEventColor: {r: 0.47899607, g: 0.8679245, b: 0.5252971, a: 1}
   InGameEventType: 0
+  Damage: 1
+  Health: 3
+  Gold: 4

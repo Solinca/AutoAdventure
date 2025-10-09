@@ -29,8 +29,15 @@ public class HandleShopItem : MonoBehaviour
 
     public void BuyItem()
     {
-        DATA.SHOP.ItemBought.Invoke(item);
+        if (DATA.GOLD.CurrentGold >= item.ShopItemPrice)
+        {
+            DATA.SHOP.ItemBought.Invoke(item);
 
-        _buyItemButton.interactable = DATA.SHOP.CheckItemAvailability(item);
+            _buyItemButton.interactable = DATA.SHOP.CheckItemAvailability(item);
+        }
+        else
+        {
+            DATA.SHOP.FailBuyingItem.Invoke();
+        }
     }
 }

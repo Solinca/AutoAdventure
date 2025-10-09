@@ -21,14 +21,14 @@ public class PlayerHealthManager : MonoBehaviour
     {
         DATA.HEALTH.LoseHealth(damage);
 
+        DATA.HEALTH.CurrentHealthChanged.Invoke();
+
         if (DATA.HEALTH.CurrentHealth <= 0)
         {
-            DATA.HEALTH.HealthDepleted.Invoke();
+            DATA.IN_GAME_EVENT.ChatMessage.Invoke("<color=#" + DATA.IN_GAME_EVENT.PLAYER_COLOR + ">Player</color> died :(");
 
-            DATA.HEALTH.SetCurrentHealth(DATA.HEALTH.MaxHealth);
+            Invoke(nameof(DelayDeath), DATA.HEALTH.TIME_TO_WAIT_AT_DEATH);
         }
-
-        DATA.HEALTH.CurrentHealthChanged.Invoke();
     }
 
     private void OnItemBought(ShopItemScriptableObject item)
@@ -51,6 +51,15 @@ public class PlayerHealthManager : MonoBehaviour
         DATA.HEALTH.MaxHealthIncreased.Invoke(amount);
 
         DATA.HEALTH.SetCurrentHealth(DATA.HEALTH.CurrentHealth + amount);
+
+        DATA.HEALTH.CurrentHealthChanged.Invoke();
+    }
+
+    private void DelayDeath()
+    {
+        DATA.HEALTH.HealthDepleted.Invoke();
+
+        DATA.HEALTH.SetCurrentHealth(DATA.HEALTH.MaxHealth);
 
         DATA.HEALTH.CurrentHealthChanged.Invoke();
     }
