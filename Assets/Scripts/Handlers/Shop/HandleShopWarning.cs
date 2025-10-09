@@ -7,6 +7,8 @@ public class HandleShopWarning : MonoBehaviour
     private void Awake()
     {
         DATA.SHOP.FailBuyingItem += OnFailBuyingItem;
+
+        animator = GetComponent<Animator>();
     }
 
     private void OnDestroy()
@@ -17,10 +19,5 @@ public class HandleShopWarning : MonoBehaviour
     private void OnFailBuyingItem()
     {
         animator.SetTrigger("TriggerFade");
-    }
-
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
     }
 }

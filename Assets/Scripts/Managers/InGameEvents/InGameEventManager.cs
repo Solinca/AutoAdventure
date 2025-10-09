@@ -4,14 +4,16 @@ using Unity.VisualScripting;
 
 public class InGameEventManager : MonoBehaviour
 {
-    [Header("In Game Events")]
+    [Header("Settings | Events")]
     [SerializeField] private List<InGameEventScriptableObject> _inGameEventList;
-
-    [Header("Settings")]
-    [SerializeField] private float _timeBetweenEvents;
     [SerializeField] private int _numberOfEventToGenerate;
+
+    [Header("Settings | Times")]
+    [SerializeField] private float _timeBetweenEvents;
     [SerializeField] private float _timeBetweenEventSteps;
     [SerializeField] private float _timeToWaitOnEventComplete;
+
+    [Header("Settings | Colors")]
     [SerializeField] private Color _playerNameColor;
     [SerializeField] private Color _damageColor;
     [SerializeField] private Color _goldColor;

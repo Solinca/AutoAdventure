@@ -12,8 +12,8 @@ public class HandleGroundParallax : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(_groundPrefab, transform).sizeDelta = new Vector2(Screen.width, 0);
-        Instantiate(_groundPrefab, transform).sizeDelta = new Vector2(Screen.width, 0);
+        Instantiate(_groundPrefab, transform).sizeDelta = new (Screen.width, 0);
+        Instantiate(_groundPrefab, transform).sizeDelta = new (Screen.width, 0);
     }
 
     private void Update()
@@ -28,7 +28,7 @@ public class HandleGroundParallax : MonoBehaviour
             {
                 ellapsedDistance = 0;
 
-                Instantiate(_groundPrefab, transform).sizeDelta = new Vector2(Screen.width, 0);
+                Instantiate(_groundPrefab, transform).sizeDelta = new (Screen.width, 0);
             }
         }
     }

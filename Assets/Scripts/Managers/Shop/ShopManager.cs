@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    [Header("Shop Items")]
+    [Header("Settings | Shop Items")]
     [SerializeField] private ShopItemScriptableObject[] _shopItemList;
 
     private void Awake()

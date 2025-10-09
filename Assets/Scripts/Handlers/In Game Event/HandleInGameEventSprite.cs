@@ -10,6 +10,8 @@ public class HandleInGameEventSprite : MonoBehaviour
         DATA.IN_GAME_EVENT.EventStarting += OnEventStarting;
         DATA.IN_GAME_EVENT.EventFinished += OnEventFinished;
         DATA.GAME_STATUS.CurrentGameStatusChanged += OnCurrentGameStatusChanged;
+
+        inGameEventSprite = GetComponent<Image>();
     }
 
     private void OnDestroy()
@@ -41,8 +43,6 @@ public class HandleInGameEventSprite : MonoBehaviour
 
     private void Start()
     {
-        inGameEventSprite = GetComponent<Image>();
-
         inGameEventSprite.enabled = false;
     }
 }
